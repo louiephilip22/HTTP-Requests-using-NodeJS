@@ -10,12 +10,15 @@ function getAndPrintHTML () {
 
   https.get(requestOptions, function (response) {
     response.on('data', function(chunk) {
-      myChunk += (chunk + '\n');
+      myChunk += chunk;
       console.log(myChunk)
-      //console.log('[-- CHUNK OF LENGTH ' + chunk + ' --]');
-      //console.log(chunk.toString());
-    })
-  });
+    });
+    response.on('end', function() {
+      console.log(myChunk)
+    });
+
+  })
+
 }
 
 getAndPrintHTML();

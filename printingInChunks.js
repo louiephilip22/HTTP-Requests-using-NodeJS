@@ -10,8 +10,10 @@ function getAndPrintHTMLChunks () {
   https.get(requestOptions, function (response) {
     response.on('data', function(chunk) {
       console.log(chunk + '\n')
-    })
-  });
+    });
+
+  })
+
 }
 
 getAndPrintHTMLChunks();
